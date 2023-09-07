@@ -46,10 +46,10 @@ $(function(){
           dataType: 'json',
           data: $('#form').serialize(),
           success: function (result){
-            alert('お問合せを送信しました')
+            alert('お問合せを送信しました');
           },
           error: function (xhr, resp, text){
-            alert('お問合せを送信できませんでした')
+            alert('お問合せを送信できませんでした');
           }
         })
       }else{
@@ -73,6 +73,9 @@ $(function(){
     inputCheck();
   });
   $('#message').blur(function(){
+    inputCheck();
+  });
+  $('#prefecture').blur(function(){
     inputCheck();
   });
   $('#agree').click(function(){
@@ -155,6 +158,7 @@ $(function(){
     // 都道府県のチェック
       if ($('#prefecture').val() == '') {
         // エラーあり
+          // alert('都道府県を選択してください\n');
           $('#prefecture').css('background-color', '#f79999');
           error = true;
           message +='都道府県を選択してください\n';
